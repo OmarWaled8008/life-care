@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>life care</title>
+  <link rel="shortcut icon" href="../../assets/pics/favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../../../dist/output.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../animate.css">
+  <link rel="stylesheet" href="appointment.css">
+</head>
+
+<body>
+  <header class="header container-fluid bg-main1 p-2 px-5 row justify-between">
+    <div class="col-4 mr-4 flex justify-between">
+      <a class="text-text mx-2 text-sm" href="">Login <i class="text-prim mr-3 fas fa-user"></i></a>
+      <a class="text-text mx-2 text-sm" href="">16781 <i class="text-prim mr-3 fas fa-phone"></i></a>
+      <a class="text-text mx-2 text-sm" href="">info@shifaegypt.com <i class="text-prim mr-3 fas fa-envelope"></i></a>
+    </div>
+    <div class="col-4 ml-4 text-end">
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-twitter"></i></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-youtube"></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </header>
+  <!-- /////////////////////////////////////nav///////////////////////////////////// -->
+  <nav id="navbarr" class="navbarr container-fluid bg-main1">
+    <div class="navbarr__content container pt-2 h-100 flex items-center  justify-between">
+      <a href="../../../index.html" class="d-block col-1"><img src="../../assets/pics/logo.png" width="80" alt=""></a>
+      <div id="hideNav" class="navbarr__hideNav col-1">
+        <span id="navBargure1"></span>
+        <span id="navBargure2"></span>
+        <span id="navBargure3"></span>
+      </div>
+      <div id="collapse" class="navbarr__collapse col-11">
+        <ul class="navbarr__ul1">
+          <li><a class="text-text hover:text-prim" href="../../../index.html">Home</a></li>
+          <li class="navbarr__li-dropdown">
+            <button id="navbarr__linkdrop" class="navbarr__linkdrop text-text hover:text-prim" href="">Departments <i
+                class="fa-solid fa-chevron-down"></i></button>
+            <div id="navbarr__dropdown" class="navbarr__dropdown p-4 justify-between">
+              <ul class="">
+                <li class="pb-3"><a class="text-text hover:text-prim"
+                    href="src/pages/departments/heart/heart.html">Cardiology department</a></li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">brain and nerves</a>
+                </li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Intensive care</a>
+                </li>
+              </ul>
+              <ul class="">
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Surgery</a></li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Internal diseases
+                  </a>
+                </li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">eyes illnesses</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="text-text hover:text-prim" href="src/pages/doctors/doctors.html">Doctors</a></li>
+          <li><a class="text-text hover:text-prim" href="">Specialties and procedures</a></li>
+        </ul>
+        <ul class="navbarr__ul2 me-auto p-2">
+          <li class="w-100"><a id="appointmentbtn" class="w-100 d-block text-center p-3 rounded-lg"
+              href="src/pages/appointment/appointment.html">book an
+              appointment</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /////////////////////////////////////appointmenthero///////////////////////////////////// -->
+  <main class="appointmenthero container-fluid p-0 bg-prim">
+    <div class="appointmenthero__title">
+      <h2 class="text-prim">Book An Appointment</h2>
+    </div>
+  </main>
+  <!-- /////////////////////////////////////appointment///////////////////////////////////// -->
+  <section id="appointment" class="appointment container">
+    <div class="appointment__container row">
+      <form id="appointmentform" action="" method="" class="col-md-8 row g-3 justify-content-center">
+        <h2 class="text-main1 text-center mb-5">Book Now</h2>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname">
+            <div id="error1" class="alert alert-danger mt-2" role="alert">
+              please put valid name
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname">
+            <div id="error2" class="alert alert-danger mt-2" role="alert">
+              please put valid name
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" value="+20">
+            <div id="error3" class="alert alert-danger mt-2" role="alert">
+              Invalid phone number
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="info@shifaegypt.com">
+            <div id="error4" class="alert alert-danger mt-2" role="alert">
+              Invalid E-mail
+            </div>
+          </div>
+        </div>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-2 pt-0 fs-4">Gender :-</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input accent-lgreen" type="radio" name="gender" id="male" value="male">
+              <label class="form-check-label" for="male">
+                Male </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input accent-lgreen" type="radio" name="gender" id="female" value="female">
+              <label class="form-check-label" for="female">
+                Female </label>
+            </div>
+            <div id="error5" class="alert alert-danger mt-2" role="alert">
+              Choose gender
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-4 pt-0 fs-4">Good time to book :-</legend>
+          <div class="row">
+            <div class="col-md-6">
+              <input type="date" class="form-control" id="date" name="date">
+              <div id="error6" class="alert alert-danger mt-2" role="alert">
+                please enter date
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input type="time" class="form-control" id="time" name="time">
+              <div id="error7" class="alert alert-danger mt-2" role="alert">
+                please enter time
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div id="formerror"></div>
+        <div class="col-12">
+          <button id="submitbtnappoinment" type="submit" class="d-block text-center p-3 rounded-lg">Enter the request to
+            be contacted</button>
+        </div>
+      </form>
+      <div class="appointment__divs col-md-4 row p-3">
+        <div class="appointment__div bg-red-700 mb-4 h-72">
+          <i class="fa-solid fa-question"></i>
+          <h4>Departments and services</h4>
+          <span></span>
+          <p>Learn about our departments, specialties and approach at Abdali Hospital</p>
+        </div>
+        <div class="appointment__div bg-red-700 mb-4 h-72">
+          <i class="fa-regular fa-clock"></i>
+          <h4>Worktime</h4>
+          <span></span>
+          <p>Outpatient clinic working hours</p>
+          <p>Saturday until Thursday</p>
+          <p>Emergency 24/7</p>
+        </div>
+        <div class="appointment__div bg-red-700 mb-4 h-72">
+          <i class="fa-regular fa-hospital"></i>
+          <h4>Insurance and financial information</h4>
+          <span></span>
+          <p>Hospital deals with insurance companies and people who cover hospitalization costs through their
+            company or at their own expense</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /////////////////////////////////////footer///////////////////////////////////// -->
+  <footer class="footer container-fluid bg-main1">
+    <div class="footer__content">
+      <img src="../../assets/pics/logo.png" alt="" width="200">
+      <ul class="flex w-75 justify-evenly">
+        <li><a class="text-text hover:text-prim w-10" href="index.html">Home</a></li>
+        <li class="navbarr__li-dropdown">
+          <button id="" class=" text-text hover:text-prim" href="">Departments</button>
+        </li>
+        <li><a class="text-text hover:text-prim w-10" href="src/pages/doctors/doctors.html">Doctors</a></li>
+        <li><a class="text-text hover:text-prim w-10" href="">Specialties and procedures</a></li>
+      </ul>
+      <div>
+        <h4 class="text-prim">Stay in touch</h4>
+        <div class="text-center">
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-twitter"></i></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-youtube"></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-instagram"></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <p class="mb-0 text-main2"><small>© Colorlib. All Rights Reserved.</small></p>
+    </div>
+  </footer>
+  <!-- /////////////////////////////////////script///////////////////////////////////// -->
+  <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../node_modules/wow.js/dist/wow.js"></script>
+  <script src="appointment.js"></script>
+</body>
+
+</html>
