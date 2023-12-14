@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main2: rgb(155, 155, 155);
+  --main1: #082336;
+  --main3: #0c324d;
+  --prim: #c99c43;
+  --text: #fefefe;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../../assets/pics/haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: whitesmoke;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contant {
+  background-color: var(--main1);
+  width: 75%;
+  height: 70%;
+  border-radius: 30px;
+  display: flex;
+  position: relative;
+}
+.div-img {
+  display: block;
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  background-image: url(../../assets/pics/REG.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  z-index: 2;
+}
+.form-control {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: transparent;
+  border: 2px solid var(--prim);
+  color: var(--main2);
+}
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: var(--prim);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #c99c43a4;
+}
+form {
+  display: block;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
+.signup {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 50px;
+  color: var(--prim);
+}
+.signup h2 {
+  margin-bottom: 40px;
+}
+.signup button {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--prim);
+  color: var(--main1);
+  border: var(--prim) solid 2px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.signup button:hover {
+  background-color: var(--main1);
+  color: var(--prim);
+}
+.login {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 50px;
+  color: var(--prim);
+}
+.login h2 {
+  margin-bottom: 40px;
+}
+.login button {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--prim);
+  color: var(--main1);
+  border: var(--prim) solid 2px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.login button:hover {
+  background-color: var(--main1);
+  color: var(--prim);
+}
+
+.input-div {
+  position: relative;
+}
+.input-div span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
