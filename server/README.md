@@ -15,3 +15,12 @@
 * Performance: Ensure quick response times for appointment scheduling.
 * Security: Implement secure patient data handling and access controls.
 * Scalability: Plan for system scalability to handle increased usage.
+
+### to start the application
+```npm install```  
+```npm run dev```
+- create in .env file the real values of:
+```
+DB_USERNAME=
+DB_PASSWORD=
+```
