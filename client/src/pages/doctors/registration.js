@@ -1,3 +1,4 @@
+// ////////////////////////////////////////////
 const signupUserName = document.getElementById("signupUsername");
 const signupEmail = document.getElementById("signupEmail");
 const signupTel = document.getElementById("signupTel");
@@ -128,9 +129,3 @@ message.addEventListener("click", function (e) {
 if (errorMessage == 1) {
   messageOverlay.style.display = "flex";
 }
-// //////////////////////////////////////////////////////////////////////////////
-const exampleInputPassword1 = document.getElementById("exampleInputPassword1");
-const passwordEyeLogin = document.getElementById("passwordeyelogin");
-passwordEyeLogin.addEventListener("click", function () {
-  showHidePasswor(exampleInputPassword1, passwordEyeLogin);
-});

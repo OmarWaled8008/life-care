@@ -220,8 +220,7 @@ form {
 }
 .input-div .errormessage,
 .input-div .loginerrormessage,
-.passwordeye,
-#passwordeyelogin {
+.passwordeye {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -236,8 +235,7 @@ form {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
 }
-.passwordeye,
-#passwordeyelogin {
+.passwordeye {
   right: 50px;
 }
 .form-check-input {

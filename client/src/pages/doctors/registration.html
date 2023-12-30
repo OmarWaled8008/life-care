@@ -32,19 +32,19 @@
       <form id="loginForm" class="login" method="post" enctype="multipart/form-data" action="{% url 'register' %}">
         <h2 class="text-center">Welcome Back</h2>
         <div class="mb-3">
-          <label for="loginUsername" class="form-label">User Name :</label>
+          <label for="loginUsername" class="form-label">Email address</label>
           <div class="input-div">
-            <input type="text" class="form-control" id="loginUsername" name="loginUsername"
+            <input type="email" class="form-control" id="loginUsername" name="loginUsername"
               aria-describedby="emailHelp">
             <span class="loginerrormessage"></span>
           </div>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password :</label>
+          <label for="exampleInputPassword1" class="form-label">Password</label>
           <div class="input-div">
             <input type="password" class="form-control" id="exampleInputPassword1">
             <span class="loginerrormessage"></span>
-            <i id="passwordeyelogin" class="fa-solid fa-eye-slash"></i>
+
           </div>
         </div>
         <button type="submit" name="login_submit" value="login_submit" class="p-2 mt-5 mb-5">Log In</button>
