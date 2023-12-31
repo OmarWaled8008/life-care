@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main2: rgb(155, 155, 155);
+  --main1: #082336;
+  --main3: #0c324d;
+  --prim: #c99c43;
+  --text: #fefefe;
+}
+body {
+  background-image: url(../../assets/pics/haikei2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 55%;
+  color: whitesmoke;
+}
+.form-control {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--main1);
+  border: 2px solid var(--prim);
+  color: var(--main2);
+}
+.form-control:focus {
+  color: var(--text);
+  background-color: var(--main1);
+  border-color: var(--prim);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #c99c43a4;
+}
+.form-check-input {
+  background-color: var(--main1);
+  border: var(--bs-border-width) solid var(--prim);
+}
+.form-check-input:checked {
+  background-color: var(--prim);
+  border-color: var(--prim);
+}
+.form-check-input:focus {
+  border-color: var(--prim);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(201, 156, 67, 0.685);
+}
+a {
+  text-decoration: none;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contant {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.messageoverlay {
+  position: fixed;
+  background-color: #082336b2;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.message {
+  width: 50%;
+  height: 50%;
+  background-color: #c99c43;
+  color: #082336;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.message i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--main1);
+  font-size: 30px;
+  cursor: pointer;
+}
+#loginDocForm {
+  display: block;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  padding: 50px;
+  color: var(--prim);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.loginDocForm h2 {
+  margin-bottom: 40px;
+}
+.loginDocForm button {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--prim);
+  color: var(--main1);
+  border: var(--prim) solid 2px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.loginDocForm button:hover {
+  background-color: var(--main1);
+  color: var(--prim);
+}
+
+.input-div {
+  position: relative;
+}
+#passwordeyelogin {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  right: 50px;
+}
