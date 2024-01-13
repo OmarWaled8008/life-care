@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>life care | registration</title>
+  <link rel="shortcut icon" href="../../assets/pics/favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../../../dist/output.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../animate.css">
+  <link rel="stylesheet" href="doctor-login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="contant">
+      <div id="messageoverlay" class="messageoverlay">
+        <div id="message" class="message" role="alert">
+          <i id="closeMessage" class="fas fa-times-circle"></i>
+          <span id="spanMessage" class="d-block text-4xl"></span>
+        </div>
+      </div>
+      <!-- //dont forget to change the method and the action// -->
+      <form id="loginDocForm" class="loginDocForm" method="post" enctype="multipart/form-data"
+        action="{% url 'register' %}">
+        <h2 class="text-center">Welcome Doctor</h2>
+        <div class="mb-3">
+          <label for="userDoctor" class="form-label">User Name :</label>
+          <div class="input-div">
+            <input type="text" class="form-control" id="userDoctor" name="userDoctor" aria-describedby="emailHelp">
+            <span class="loginerrormessage"></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordDoctor" class="form-label">Password :</label>
+          <div class="input-div">
+            <input type="password" class="form-control" id="passwordDoctor" name="passwordDoctor">
+            <span class="loginerrormessage"></span>
+            <i id="passwordeyelogin" class="fa-solid fa-eye-slash"></i>
+          </div>
+        </div>
+        <button type="submit" name="doctor_submit" value="doctor_submit" class="p-2 mt-5 mb-5">Log In</button>
+        <div id="formError" class="alert alert-danger d-none" role="alert">
+          A simple danger alert—check it out!
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /////////////////////////////////////script///////////////////////////////////// -->
+  <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../node_modules/wow.js/dist/wow.js"></script>
+  <script src="doctor-login.js"></script>
+</body>
+
+</html>
