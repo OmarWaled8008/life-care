@@ -1,8 +1,11 @@
 import * as dotenv from 'dotenv'
 import express from "express"
+import cookieParser from 'cookie-parser';
 
 import { connectToDatabase } from "./config/connection";
-import { db } from "./utils/db.server";
+import authRouter from './routes/authRoutes'
+import notFound from './middlewares/notFound';
+import errorHandler from './middlewares/notFound';
 
 dotenv.config()
 
@@ -11,6 +14,12 @@ connectToDatabase()
 
 const app = express()
 app.use(express.json())
+
+//Routes
+app.use(cookieParser(process.env.JWT_SECRET))
+app.use('/api/v1/auth', authRouter)
+app.use(notFound)
+app.use(errorHandler)
 
 if (!process.env.PORT) {
     process.exit(1)
