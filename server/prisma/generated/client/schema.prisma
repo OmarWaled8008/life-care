@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id         Int      @id @default(autoincrement())
+  userName  String
+  email     String    @unique
+  password  String 
+  age       Int?
+  gender    String? 
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  // m-n relationship with Doctor
+  doctors   UserDoctor[]
+}
+
+model Doctor {
+  id                       Int       @id @default(autoincrement())
+  name                     String
+  price                    Float
+  email                    String    @unique
+  password                 String 
+  phone                    String
+  specialization           String
+  averageRate              Float     @default(0)
+  numberOfPatientsPerMonth Int       @default(0)
+  role                     Role      @default(DOCTOR)
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+  //m-n relationship with User
+  patients                 UserDoctor[]
+}
+
+model UserDoctor {
+  userId   Int
+  doctorId Int
+
+  // Define foreign keys
+  user      User    @relation(fields: [userId], references: [id])
+  doctor    Doctor  @relation(fields: [doctorId], references: [id])
+
+  // Define the compound primary key
+  @@id([userId, doctorId])
+}
+
+model Admin {
+  id                       Int       @id @default(autoincrement())
+  name                     String
+  email                    String    @unique
+  password                 String
+  role                     Role      @default(ADMIN)
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  DOCTOR
+  ADMIN
+}
