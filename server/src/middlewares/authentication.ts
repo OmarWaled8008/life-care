@@ -2,7 +2,6 @@ import { isTokenValid } from "../utils/userService";
 import { UnauthenticatedError } from "../errors/index";
 import { Request, Response, NextFunction } from 'express';
 
-
 // Define the structure of the user payload
 interface UserPayload {
     id?: string;
@@ -38,4 +37,4 @@ const authenticationUser = async (req: Request, res: Response, next: NextFunctio
     }
 };
 
-export { authenticationUser };
+export { authenticationUser};

@@ -8,7 +8,7 @@ const createToken = ({ payload }: { payload: Record<string, any> }): string => {
 };
 
 const neededPayload = (data: Record<string, any>): Record<string, any> => {
-    return { userId: data.id, userName: data.userName };
+    return { userId: data.id, userName: data.userName,  role: data.role };
 };
 
 const isTokenValid = ({ token }: { token: string }): Record<string, any> => {

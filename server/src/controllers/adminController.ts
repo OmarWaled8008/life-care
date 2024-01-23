@@ -61,4 +61,26 @@ const adminLogout = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export {adminLogin, adminLogout} 
+const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const users = await db.user.findMany()
+        res.status(StatusCodes.OK).json({users})
+    } catch (error) {
+        console.error('Error logging out:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
+
+const getAllDoctors = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const doctors = await db.doctor.findMany()
+        res.status(StatusCodes.OK).json({doctors})
+    } catch (error) {
+        console.error('Error logging out:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export {adminLogin, adminLogout, getAllUsers, getAllDoctors} 
