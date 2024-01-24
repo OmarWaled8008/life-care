@@ -1,4 +1,4 @@
-import { isTokenValid } from "../utils/userService";
+import { isTokenValid } from "../utils/jwt-utils";
 import { UnauthenticatedError } from "../errors/index";
 import { Request, Response, NextFunction } from 'express';
 

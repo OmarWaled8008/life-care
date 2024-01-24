@@ -7,7 +7,7 @@ import { db } from '../utils/db.server';
 import {
     neededPayload,
     attachCookieToResponse
-} from "../utils/userService";
+} from "../utils/jwt-utils";
 
 
 //Register

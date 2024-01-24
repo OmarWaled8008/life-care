@@ -12,4 +12,17 @@ const isAdminMiddleware = (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
-export { isAdminMiddleware }
+//Doctor-only
+const isDoctorMiddleware = (req: Request, res: Response, next: NextFunction) => {
+    const user = req.user;
+
+    console.log('User in isDoctorMiddleware:', user);
+    
+    if (user && user.role === 'DOCTOR') {
+        next();
+    } else {
+        res.status(403).json({ error: 'Forbidden: Access denied for non-doctors users' });
+    }
+};
+
+export { isAdminMiddleware, isDoctorMiddleware }

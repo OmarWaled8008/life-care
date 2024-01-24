@@ -2,7 +2,7 @@ import express, { Router } from 'express'
 const router : Router = express.Router()
 
 import { adminLogin, adminLogout, getAllUsers, getAllDoctors } from '../controllers/adminController'
-import { createDoctor } from '../controllers/doctorCreation'
+import { createDoctor } from '../controllers/adminController'
 import { authenticationUser} from '../middlewares/authentication'
 import { isAdminMiddleware } from '../middlewares/authorization'
 import { validateEmail } from '../middlewares/emailValidator'

@@ -1,6 +1,6 @@
 import express, { Router } from 'express'
 const router: Router = express.Router()
-import { registerUser,loingUser, logoutUser } from '../controllers/authController'
+import { registerUser,loingUser, logoutUser } from '../controllers/userController'
 import { authenticationUser } from '../middlewares/authentication'
 import { validateEmail } from '../middlewares/emailValidator'
 
