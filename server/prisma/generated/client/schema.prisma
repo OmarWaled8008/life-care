@@ -33,6 +33,7 @@ model Doctor {
   price                    Float
   email                    String    @unique
   password                 String 
+  passwordResetToken       String?
   phone                    String
   specialization           String
   averageRate              Float     @default(0)

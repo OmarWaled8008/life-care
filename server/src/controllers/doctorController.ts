@@ -8,6 +8,8 @@ import {
     neededPayload,
     attachCookieToResponse
 } from "../utils/jwt-utils";
+import { generatePasswordResetToken } from "../utils/reset-utils";
+import { sendPasswordResetEmail } from "../utils/email-utils";
 
 
 //Login
@@ -48,6 +50,103 @@ const loingDoctor = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
+//Get Doctor Data by id
+const getDoctorDataById = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const  doctorId  = parseInt(req.params.id, 10)
+        //console.log('Doctor ID:', doctorId);
+
+        const doctor = await db.doctor.findUnique({
+            where: {id : doctorId},
+        })
+
+        if(!doctor) {
+            res.status(StatusCodes.NOT_FOUND).json({ error: 'Doctor not found' });
+        }
+
+        const responseData = {
+            name: doctor.name,
+            sessionPrice: doctor.price,
+            phone: doctor.phone,
+            specialization: doctor.specialization,
+            averageDoctorRate:doctor.averageRate,
+            numberOfPatientsPerMonth: doctor.numberOfPatientsPerMonth
+        }
+
+        res.status(StatusCodes.OK).json({profile: responseData})
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
+
+//Reset password
+const requestPasswordReset = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { email } = req.body;
+
+        const doctor = await db.doctor.findUnique({
+            where: { email }
+        })
+
+        if(!doctor) {
+            res.status(StatusCodes.NOT_FOUND).json({ error: 'Doctor not found' });
+        }
+
+        // Generate a unique password reset token
+        const resetToken = generatePasswordResetToken();
+
+        // Save the token in the database associated with the doctor
+        await db.doctor.update({
+            where: { id: doctor.id},
+            data: { passwordResetToken: resetToken },
+        })
+
+        //send reset token to the doctor via email
+        await sendPasswordResetEmail(doctor.email, resetToken);
+
+        res.status(StatusCodes.OK).json({ message : "Go check your email Password reset email sended" })
+
+    } catch (error) {
+        console.error('Error initiating password reset:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
+const resetPassword = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { token, newPassword } = req.body;
+
+        const doctor = await db.doctor.findFirst({
+            where: { passwordResetToken: token },
+        });
+
+        if(!doctor){
+            res.status(StatusCodes.NOT_FOUND).json({ error: 'Invaild or expired reset token' });
+        }
+
+        // hash the new password
+        const hashedPassword = await bcrypt.hash(newPassword, 12);
+
+        // update the doctor password && clear the reset token
+        await db.doctor.update({
+            where: {id: doctor.id},
+            data: {
+                password: hashedPassword,
+                passwordResetToken: null
+            }
+        })
+
+        res.status(StatusCodes.OK).json({ message: 'Password reset successful' });
+
+    } catch (error) {
+        console.error('Error initiating password reset:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
+
 const logoutDocor = async (req: Request, res: Response): Promise<void> => {
     try {
         res.clearCookie('token');
@@ -58,4 +157,4 @@ const logoutDocor = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export { loingDoctor, logoutDocor }
+export { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById }

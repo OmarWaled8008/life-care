@@ -2242,6 +2242,7 @@ export namespace Prisma {
     price: number | null
     email: string | null
     password: string | null
+    passwordResetToken: string | null
     phone: string | null
     specialization: string | null
     averageRate: number | null
@@ -2257,6 +2258,7 @@ export namespace Prisma {
     price: number | null
     email: string | null
     password: string | null
+    passwordResetToken: string | null
     phone: string | null
     specialization: string | null
     averageRate: number | null
@@ -2272,6 +2274,7 @@ export namespace Prisma {
     price: number
     email: number
     password: number
+    passwordResetToken: number
     phone: number
     specialization: number
     averageRate: number
@@ -2303,6 +2306,7 @@ export namespace Prisma {
     price?: true
     email?: true
     password?: true
+    passwordResetToken?: true
     phone?: true
     specialization?: true
     averageRate?: true
@@ -2318,6 +2322,7 @@ export namespace Prisma {
     price?: true
     email?: true
     password?: true
+    passwordResetToken?: true
     phone?: true
     specialization?: true
     averageRate?: true
@@ -2333,6 +2338,7 @@ export namespace Prisma {
     price?: true
     email?: true
     password?: true
+    passwordResetToken?: true
     phone?: true
     specialization?: true
     averageRate?: true
@@ -2435,6 +2441,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken: string | null
     phone: string
     specialization: string
     averageRate: number
@@ -2469,6 +2476,7 @@ export namespace Prisma {
     price?: boolean
     email?: boolean
     password?: boolean
+    passwordResetToken?: boolean
     phone?: boolean
     specialization?: boolean
     averageRate?: boolean
@@ -2486,6 +2494,7 @@ export namespace Prisma {
     price?: boolean
     email?: boolean
     password?: boolean
+    passwordResetToken?: boolean
     phone?: boolean
     specialization?: boolean
     averageRate?: boolean
@@ -2512,6 +2521,7 @@ export namespace Prisma {
       price: number
       email: string
       password: string
+      passwordResetToken: string | null
       phone: string
       specialization: string
       averageRate: number
@@ -2919,6 +2929,7 @@ export namespace Prisma {
     readonly price: FieldRef<"Doctor", 'Float'>
     readonly email: FieldRef<"Doctor", 'String'>
     readonly password: FieldRef<"Doctor", 'String'>
+    readonly passwordResetToken: FieldRef<"Doctor", 'String'>
     readonly phone: FieldRef<"Doctor", 'String'>
     readonly specialization: FieldRef<"Doctor", 'String'>
     readonly averageRate: FieldRef<"Doctor", 'Float'>
@@ -5163,6 +5174,7 @@ export namespace Prisma {
     price: 'price',
     email: 'email',
     password: 'password',
+    passwordResetToken: 'passwordResetToken',
     phone: 'phone',
     specialization: 'specialization',
     averageRate: 'averageRate',
@@ -5384,6 +5396,7 @@ export namespace Prisma {
     price?: FloatFilter<"Doctor"> | number
     email?: StringFilter<"Doctor"> | string
     password?: StringFilter<"Doctor"> | string
+    passwordResetToken?: StringNullableFilter<"Doctor"> | string | null
     phone?: StringFilter<"Doctor"> | string
     specialization?: StringFilter<"Doctor"> | string
     averageRate?: FloatFilter<"Doctor"> | number
@@ -5400,6 +5413,7 @@ export namespace Prisma {
     price?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    passwordResetToken?: SortOrderInput | SortOrder
     phone?: SortOrder
     specialization?: SortOrder
     averageRate?: SortOrder
@@ -5419,6 +5433,7 @@ export namespace Prisma {
     name?: StringFilter<"Doctor"> | string
     price?: FloatFilter<"Doctor"> | number
     password?: StringFilter<"Doctor"> | string
+    passwordResetToken?: StringNullableFilter<"Doctor"> | string | null
     phone?: StringFilter<"Doctor"> | string
     specialization?: StringFilter<"Doctor"> | string
     averageRate?: FloatFilter<"Doctor"> | number
@@ -5435,6 +5450,7 @@ export namespace Prisma {
     price?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    passwordResetToken?: SortOrderInput | SortOrder
     phone?: SortOrder
     specialization?: SortOrder
     averageRate?: SortOrder
@@ -5458,6 +5474,7 @@ export namespace Prisma {
     price?: FloatWithAggregatesFilter<"Doctor"> | number
     email?: StringWithAggregatesFilter<"Doctor"> | string
     password?: StringWithAggregatesFilter<"Doctor"> | string
+    passwordResetToken?: StringNullableWithAggregatesFilter<"Doctor"> | string | null
     phone?: StringWithAggregatesFilter<"Doctor"> | string
     specialization?: StringWithAggregatesFilter<"Doctor"> | string
     averageRate?: FloatWithAggregatesFilter<"Doctor"> | number
@@ -5667,6 +5684,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken?: string | null
     phone: string
     specialization: string
     averageRate?: number
@@ -5683,6 +5701,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken?: string | null
     phone: string
     specialization: string
     averageRate?: number
@@ -5698,6 +5717,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number
@@ -5714,6 +5734,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number
@@ -5730,6 +5751,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken?: string | null
     phone: string
     specialization: string
     averageRate?: number
@@ -5744,6 +5766,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number
@@ -5759,6 +5782,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number
@@ -6109,6 +6133,7 @@ export namespace Prisma {
     price?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    passwordResetToken?: SortOrder
     phone?: SortOrder
     specialization?: SortOrder
     averageRate?: SortOrder
@@ -6131,6 +6156,7 @@ export namespace Prisma {
     price?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    passwordResetToken?: SortOrder
     phone?: SortOrder
     specialization?: SortOrder
     averageRate?: SortOrder
@@ -6146,6 +6172,7 @@ export namespace Prisma {
     price?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    passwordResetToken?: SortOrder
     phone?: SortOrder
     specialization?: SortOrder
     averageRate?: SortOrder
@@ -6713,6 +6740,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken?: string | null
     phone: string
     specialization: string
     averageRate?: number
@@ -6728,6 +6756,7 @@ export namespace Prisma {
     price: number
     email: string
     password: string
+    passwordResetToken?: string | null
     phone: string
     specialization: string
     averageRate?: number
@@ -6792,6 +6821,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number
@@ -6807,6 +6837,7 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     specialization?: StringFieldUpdateOperationsInput | string
     averageRate?: FloatFieldUpdateOperationsInput | number

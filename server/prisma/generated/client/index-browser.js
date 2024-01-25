@@ -125,6 +125,7 @@ exports.Prisma.DoctorScalarFieldEnum = {
   price: 'price',
   email: 'email',
   password: 'password',
+  passwordResetToken: 'passwordResetToken',
   phone: 'phone',
   specialization: 'specialization',
   averageRate: 'averageRate',
