@@ -8,6 +8,11 @@ import {
     neededPayload,
     attachCookieToResponse
 } from "../utils/jwt-utils";
+import  LoggerService  from '../services/loggerServices'
+
+const registerLogger = new LoggerService({log :'Register User'})
+const loginLogger = new LoggerService({log :'Login User'})
+const logoutLogger = new LoggerService({log :'Logout User'})
 
 
 //Register
@@ -48,8 +53,10 @@ const registerUser = async (req: Request, res: Response): Promise<void> => {
         attachCookieToResponse({ res, payload });
 
         res.status(StatusCodes.CREATED).json({ message: 'User registered successfully', user: newUser })
+        await registerLogger.info('Register successfuly', { email: email})
     } catch (error) {
         console.error('Error registering user:', error);
+        await registerLogger.error('Register failed', {error: error.message})
         res.status(500).json({ error: 'Internal Server Error' })
     }
 }  
@@ -85,8 +92,10 @@ const loingUser = async (req: Request, res: Response): Promise<void> => {
         attachCookieToResponse({ res, payload });
 
         res.status(StatusCodes.OK).json({ user: payload });
+        await loginLogger.info('Login successful', { email:email })
     } catch (error) {
         console.error('Error logging in:', error);
+        await loginLogger.error('Login failed', { error: error.message })
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
@@ -186,9 +195,13 @@ const getNotifications = async (req: Request, res: Response): Promise<void> => {
 const logoutUser = async (req: Request, res: Response): Promise<void> => {
     try {
         res.clearCookie('token');
+        const userName = req.user?.userName
+        await logoutLogger.info('Logout successfuly', { userName })
         res.status(StatusCodes.OK).json({ message: 'Logged out successfully.' });
     } catch (error) {
         console.error('Error logging out:', error);
+        const userName = req.user?.userName
+        await logoutLogger.error('Logout failed', { userName })
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
