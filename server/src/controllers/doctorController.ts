@@ -75,7 +75,34 @@ const getDoctorDataById = async (req: Request, res: Response): Promise<void> => 
 
         res.status(StatusCodes.OK).json({profile: responseData})
     } catch (error) {
-        console.error('Error logging in:', error);
+        console.error('Error When get doctor data in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
+// Read appointment
+const getDoctorAppointments = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const doctorId = req.user?.userId;
+
+        console.log(doctorId)
+
+        const appointments = await db.appointment.findMany({
+            where: { doctorId: doctorId },
+            select: {
+                patientName: true,
+                phoneNumber: true,
+                address: true,
+                gender: true,
+                bookTime: true,
+                status: true
+            }
+        })
+
+        console.log('Retrieved appointments:', appointments)
+        res.status(StatusCodes.OK).json({ appointments })
+    } catch (error) {
+        console.error('Error When get doctor appoitments in:', error);
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
     }
 }
@@ -157,4 +184,4 @@ const logoutDocor = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById }
+export { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById, getDoctorAppointments }

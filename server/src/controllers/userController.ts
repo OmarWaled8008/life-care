@@ -91,6 +91,70 @@ const loingUser = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
+// Get user profile
+const getUserrDataById = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const  userId  = parseInt(req.params.id, 10)
+        //console.log('Doctor ID:', doctorId);
+
+        const user = await db.user.findUnique({
+            where: {id : userId},
+        })
+
+        if(!user) {
+            res.status(StatusCodes.NOT_FOUND).json({ error: 'User not found' });
+        }
+
+        const responseData = {
+            name: user.userName,
+            age: user.age,
+            gender: user.gender,
+            // rest of user profile (appointment and doctor seesions)
+        }
+
+        res.status(StatusCodes.OK).json({profile: responseData})
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
+// Make a appointment
+const createAppointment = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { patientName, phoneNumber, address, gender, bookTime, doctorId } = req.body
+
+        if (!patientName || !phoneNumber || !address || !gender || !bookTime || !doctorId) {
+            throw new BadRequestError("All fields must be provide")
+        }
+
+        if(gender ==! "male" || gender ===! "female") {
+            throw new BadRequestError("gender must be male or female")
+        }
+
+        
+        const userId = req.user?.userId        
+
+        const userapp = await db.appointment.create({
+            data: {
+                patientName,
+                phoneNumber,
+                address,
+                gender,
+                bookTime,
+                status: 'PENDING',
+                userId: userId,
+                doctorId: parseInt(doctorId, 10)
+            }
+        })
+
+        res.status(StatusCodes.CREATED).json(userapp)
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
 const logoutUser = async (req: Request, res: Response): Promise<void> => {
     try {
         res.clearCookie('token');
@@ -103,4 +167,4 @@ const logoutUser = async (req: Request, res: Response): Promise<void> => {
 
 
 
-export { registerUser, loingUser, logoutUser }
+export { registerUser, loingUser, logoutUser, getUserrDataById, createAppointment}

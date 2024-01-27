@@ -135,11 +135,6 @@ exports.Prisma.DoctorScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.UserDoctorScalarFieldEnum = {
-  userId: 'userId',
-  doctorId: 'doctorId'
-};
-
 exports.Prisma.AdminScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -148,6 +143,18 @@ exports.Prisma.AdminScalarFieldEnum = {
   role: 'role',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AppointmentScalarFieldEnum = {
+  id: 'id',
+  patientName: 'patientName',
+  phoneNumber: 'phoneNumber',
+  address: 'address',
+  gender: 'gender',
+  bookTime: 'bookTime',
+  status: 'status',
+  userId: 'userId',
+  doctorId: 'doctorId'
 };
 
 exports.Prisma.SortOrder = {
@@ -170,11 +177,17 @@ exports.Role = exports.$Enums.Role = {
   ADMIN: 'ADMIN'
 };
 
+exports.AppointmentStatus = exports.$Enums.AppointmentStatus = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  CANCELLED: 'CANCELLED'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   Doctor: 'Doctor',
-  UserDoctor: 'UserDoctor',
-  Admin: 'Admin'
+  Admin: 'Admin',
+  Appointment: 'Appointment'
 };
 
 /**

@@ -23,8 +23,8 @@ model User {
   role      Role      @default(USER)
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  // m-n relationship with Doctor
-  doctors   UserDoctor[]
+
+  appointments Appointment[]
 }
 
 model Doctor {
@@ -41,21 +41,11 @@ model Doctor {
   role                     Role      @default(DOCTOR)
   createdAt                DateTime  @default(now())
   updatedAt                DateTime  @updatedAt
-  //m-n relationship with User
-  patients                 UserDoctor[]
+
+  appointments             Appointment[]
 }
 
-model UserDoctor {
-  userId   Int
-  doctorId Int
 
-  // Define foreign keys
-  user      User    @relation(fields: [userId], references: [id])
-  doctor    Doctor  @relation(fields: [doctorId], references: [id])
-
-  // Define the compound primary key
-  @@id([userId, doctorId])
-}
 
 model Admin {
   id                       Int       @id @default(autoincrement())
@@ -65,6 +55,32 @@ model Admin {
   role                     Role      @default(ADMIN)
   createdAt                DateTime  @default(now())
   updatedAt                DateTime  @updatedAt
+}
+
+
+model Appointment {
+  id           Int      @id @default(autoincrement())
+  patientName  String
+  phoneNumber  Int
+  address      String
+  gender       String
+  bookTime     DateTime
+  status       AppointmentStatus @default(PENDING) 
+
+  // Relationships
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+
+  doctor       Doctor   @relation(fields: [doctorId], references: [id])
+  doctorId     Int
+}
+
+
+
+enum AppointmentStatus {
+  PENDING
+  ACCEPTED
+  CANCELLED
 }
 
 enum Role {

@@ -19,9 +19,9 @@ app.use(express.json())
 
 //Routes
 app.use(cookieParser(process.env.JWT_SECRET))
-app.use('/api/v1/auth', userRouter)
+app.use('/api/v1/user', userRouter)
 app.use('/api/v1/admin', adminRoutr)
-app.use('/api/v1/docotr', doctorRoutr)
+app.use('/api/v1/doctor', doctorRoutr)
 app.use(notFound)
 app.use(errorHandler)
 
