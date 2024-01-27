@@ -107,6 +107,27 @@ const getDoctorAppointments = async (req: Request, res: Response): Promise<void>
     }
 }
 
+// Doctor Accept or Cancle app
+const acceptOrCancel = async (req: Request, res: Response): Promise <void> => {
+    try {
+        const { action } = req.body  //ACCEPTED CANCELLED
+        const appId : number = parseInt(req.params?.id, 10)
+        console.log(appId)
+
+        const appointments = await db.appointment.update({
+            where: { id: appId },
+            data: { status: action.toUpperCase() }
+        })
+
+        // Logic :Notify user about the action later...
+
+        res.json({ message: `Appointment ${action}ed successfully` });
+    } catch (error) {
+        console.error('Error When update doctor appoitments state in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
 
 //Reset password
 const requestPasswordReset = async (req: Request, res: Response): Promise<void> => {
@@ -184,4 +205,4 @@ const logoutDocor = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById, getDoctorAppointments }
+export { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById, getDoctorAppointments, acceptOrCancel }
