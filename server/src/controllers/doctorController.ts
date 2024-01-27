@@ -112,7 +112,7 @@ const acceptOrCancel = async (req: Request, res: Response): Promise <void> => {
     try {
         const { action } = req.body  //ACCEPTED CANCELLED
         const appId : number = parseInt(req.params?.id, 10)
-        console.log(appId)
+        
 
         const appointments = await db.appointment.update({
             where: { id: appId },
@@ -120,6 +120,16 @@ const acceptOrCancel = async (req: Request, res: Response): Promise <void> => {
         })
 
         // Logic :Notify user about the action later...
+        const userId = appointments.userId
+        const patientName = appointments.patientName
+        await db.user.update({
+            where:{ id:  userId},
+            data: {
+                notifications:{
+                    push: `${patientName}'s Appointment has been ${action}ed`
+                }
+            }
+        })
 
         res.json({ message: `Appointment ${action}ed successfully` });
     } catch (error) {

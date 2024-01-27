@@ -1253,6 +1253,7 @@ export namespace Prisma {
     password: number
     age: number
     gender: number
+    notifications: number
     role: number
     createdAt: number
     updatedAt: number
@@ -1301,6 +1302,7 @@ export namespace Prisma {
     password?: true
     age?: true
     gender?: true
+    notifications?: true
     role?: true
     createdAt?: true
     updatedAt?: true
@@ -1400,6 +1402,7 @@ export namespace Prisma {
     password: string
     age: number | null
     gender: string | null
+    notifications: string[]
     role: $Enums.Role
     createdAt: Date
     updatedAt: Date
@@ -1431,6 +1434,7 @@ export namespace Prisma {
     password?: boolean
     age?: boolean
     gender?: boolean
+    notifications?: boolean
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1445,6 +1449,7 @@ export namespace Prisma {
     password?: boolean
     age?: boolean
     gender?: boolean
+    notifications?: boolean
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1468,6 +1473,7 @@ export namespace Prisma {
       password: string
       age: number | null
       gender: string | null
+      notifications: string[]
       role: $Enums.Role
       createdAt: Date
       updatedAt: Date
@@ -1872,6 +1878,7 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly age: FieldRef<"User", 'Int'>
     readonly gender: FieldRef<"User", 'String'>
+    readonly notifications: FieldRef<"User", 'String[]'>
     readonly role: FieldRef<"User", 'Role'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -5258,6 +5265,7 @@ export namespace Prisma {
     password: 'password',
     age: 'age',
     gender: 'gender',
+    notifications: 'notifications',
     role: 'role',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -5439,6 +5447,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     age?: IntNullableFilter<"User"> | number | null
     gender?: StringNullableFilter<"User"> | string | null
+    notifications?: StringNullableListFilter<"User">
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -5452,6 +5461,7 @@ export namespace Prisma {
     password?: SortOrder
     age?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
+    notifications?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5468,6 +5478,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     age?: IntNullableFilter<"User"> | number | null
     gender?: StringNullableFilter<"User"> | string | null
+    notifications?: StringNullableListFilter<"User">
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -5481,6 +5492,7 @@ export namespace Prisma {
     password?: SortOrder
     age?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
+    notifications?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5501,6 +5513,7 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     age?: IntNullableWithAggregatesFilter<"User"> | number | null
     gender?: StringNullableWithAggregatesFilter<"User"> | string | null
+    notifications?: StringNullableListFilter<"User">
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -5753,6 +5766,7 @@ export namespace Prisma {
     password: string
     age?: number | null
     gender?: string | null
+    notifications?: UserCreatenotificationsInput | string[]
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5766,6 +5780,7 @@ export namespace Prisma {
     password: string
     age?: number | null
     gender?: string | null
+    notifications?: UserCreatenotificationsInput | string[]
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5778,6 +5793,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5791,6 +5807,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5804,6 +5821,7 @@ export namespace Prisma {
     password: string
     age?: number | null
     gender?: string | null
+    notifications?: UserCreatenotificationsInput | string[]
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5815,6 +5833,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5827,6 +5846,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6143,6 +6163,14 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type EnumRoleFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
@@ -6183,6 +6211,7 @@ export namespace Prisma {
     password?: SortOrder
     age?: SortOrder
     gender?: SortOrder
+    notifications?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6518,6 +6547,10 @@ export namespace Prisma {
     _max?: NestedEnumAppointmentStatusFilter<$PrismaModel>
   }
 
+  export type UserCreatenotificationsInput = {
+    set: string[]
+  }
+
   export type AppointmentCreateNestedManyWithoutUserInput = {
     create?: XOR<AppointmentCreateWithoutUserInput, AppointmentUncheckedCreateWithoutUserInput> | AppointmentCreateWithoutUserInput[] | AppointmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AppointmentCreateOrConnectWithoutUserInput | AppointmentCreateOrConnectWithoutUserInput[]
@@ -6546,6 +6579,11 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type UserUpdatenotificationsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type EnumRoleFieldUpdateOperationsInput = {
@@ -7002,6 +7040,7 @@ export namespace Prisma {
     password: string
     age?: number | null
     gender?: string | null
+    notifications?: UserCreatenotificationsInput | string[]
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7014,6 +7053,7 @@ export namespace Prisma {
     password: string
     age?: number | null
     gender?: string | null
+    notifications?: UserCreatenotificationsInput | string[]
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7077,6 +7117,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7089,6 +7130,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    notifications?: UserUpdatenotificationsInput | string[]
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

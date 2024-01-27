@@ -150,9 +150,37 @@ const createAppointment = async (req: Request, res: Response): Promise<void> => 
 
         res.status(StatusCodes.CREATED).json(userapp)
     } catch (error) {
-        console.error('Error logging in:', error);
+        console.error('Error while create appointment in:', error);
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
     }
+}
+
+// Get notification by userId
+const getNotifications = async (req: Request, res: Response): Promise<void> => {
+
+    try {
+        const userId = parseInt(req.params.id, 10)
+
+    const user = await db.user.findUnique({
+        where: { id: userId },
+    })
+
+    if (!user) {
+        res.status(StatusCodes.NOT_FOUND).json({ error: 'User not found' });
+    }
+
+    const notifications = await db.user.findMany({
+        select: {
+            notifications: true
+        }
+    })
+
+    res.status(StatusCodes.OK).json({ notifications })
+    } catch (error) {
+        console.error('Error while fetch notifications in:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+
 }
 
 const logoutUser = async (req: Request, res: Response): Promise<void> => {
@@ -167,4 +195,11 @@ const logoutUser = async (req: Request, res: Response): Promise<void> => {
 
 
 
-export { registerUser, loingUser, logoutUser, getUserrDataById, createAppointment}
+export {
+        registerUser,
+        loingUser, 
+        logoutUser, 
+        getUserrDataById, 
+        createAppointment, 
+        getNotifications
+    }

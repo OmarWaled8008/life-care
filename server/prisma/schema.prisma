@@ -20,6 +20,7 @@ model User {
   password  String 
   age       Int?
   gender    String? 
+  notifications String[]
   role      Role      @default(USER)
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt

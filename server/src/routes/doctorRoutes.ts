@@ -1,7 +1,14 @@
 import express, { Router } from 'express'
 const router: Router = express.Router()
 
-import { loingDoctor, logoutDocor, requestPasswordReset, resetPassword, getDoctorDataById, getDoctorAppointments, acceptOrCancel } from '../controllers/doctorController'
+import { loingDoctor,
+        logoutDocor,
+        requestPasswordReset,
+        resetPassword,
+        getDoctorDataById,
+        getDoctorAppointments,
+        acceptOrCancel
+} from '../controllers/doctorController'
 import { authenticationUser } from '../middlewares/authentication'
 import { isDoctorMiddleware } from '../middlewares/authorization'
 
