@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import express from "express"
 import cookieParser from 'cookie-parser';
 
@@ -8,7 +8,6 @@ import adminRoutr from './routes/adminRoutes'
 import doctorRoutr from './routes/doctorRoutes'
 import notFound from './middlewares/notFound';
 import errorHandler from './middlewares/notFound';
-
 dotenv.config()
 
 //connect to the Database

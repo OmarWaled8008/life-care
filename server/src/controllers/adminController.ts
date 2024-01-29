@@ -8,6 +8,8 @@ import {
     attachCookieToResponse
 } from "../utils/jwt-utils";
 import { BadRequestError } from '../errors/index'
+import { redisClient } from '../utils/redis'
+
 
 //Login
 const adminLogin = async (req: Request, res: Response): Promise<void> => {
@@ -51,38 +53,28 @@ const adminLogin = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
-//logout
-const adminLogout = async (req: Request, res: Response): Promise<void> => {
-    try {
-        res.clearCookie('token');
-        res.status(StatusCodes.OK).json({ message: 'Admin Logged out successfully.' });
-    } catch (error) {
-        console.error('Error logging out:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
 
 // Create Doctor only access by Admin
 const createDoctor = async (req: Request, res: Response): Promise<void> => {
     try {
-
+        
         const { name, email, password, price, phone, specialization, averageRate,} = req.body;
-
+        
         if (!name || !email || !password || !price || !phone ||!specialization || !averageRate) {
             throw new BadRequestError("All fields must be provide")
         }
-
+        
         // Check if the email already exists
         const existingUser = await db.doctor.findUnique({
             where: { email },
         });
-
+        
         if (existingUser) {
             res.status(400).json({ error: 'Doctor Email is already exist.' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 12);
-
+        
         const newDoctor = await db.doctor.create({
             data: {
                 name,
@@ -94,13 +86,13 @@ const createDoctor = async (req: Request, res: Response): Promise<void> => {
                 averageRate,
             },
         });
-
+        
         // Create a payload for the JWT
         const payload = neededPayload(newDoctor);
-
+        
         // // Attach the JWT to the response cookie
         attachCookieToResponse({ res, payload });
-
+        
         res.status(StatusCodes.CREATED).json({ message: 'Doctor created successfully', user: newDoctor })
     } catch (error) {
         console.error('Error while creating doctor:', error);
@@ -110,8 +102,13 @@ const createDoctor = async (req: Request, res: Response): Promise<void> => {
 
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+    const cacheKey = req.originalUrl
     try {
         const users = await db.user.findMany()
+        
+        // Store the response in the cache for future requests
+        const cacheValue = JSON.stringify({ users });
+        await redisClient.set(cacheKey, cacheValue, {EX: 100});
         res.status(StatusCodes.OK).json({users})
     } catch (error) {
         console.error('Error logging out:', error);
@@ -123,12 +120,27 @@ const getAllUsers = async (req: Request, res: Response): Promise<void> => {
 
 const getAllDoctors = async (req: Request, res: Response): Promise<void> => {
     try {
+        const cacheKey = req.originalUrl
         const doctors = await db.doctor.findMany()
+        // Store the response in the cache for future requests
+        const cacheValue = JSON.stringify({ doctors });
+        await redisClient.set(cacheKey, cacheValue, {EX: 100});
         res.status(StatusCodes.OK).json({doctors})
     } catch (error) {
         console.error('Error logging out:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
+//logout
+const adminLogout = async (req: Request, res: Response): Promise<void> => {
+    try {
+        res.clearCookie('token');
+        res.status(StatusCodes.OK).json({ message: 'Admin Logged out successfully.' });
+    } catch (error) {
+        console.error('Error logging out:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
 export {adminLogin, adminLogout, createDoctor,getAllUsers, getAllDoctors} 

@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const logFilePath = process.env.LOG_FILE_PATH;
-console.log('Log file path:', logFilePath);
+//console.log('Log file path:', logFilePath);
 
 const dateFormat = () => {
     return format(new Date(), 'yyyy-MM-dd HH:mm:ss');
