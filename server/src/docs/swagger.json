@@ -1,0 +1,697 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Life Care",
+        "description": "The Life Care Website is a comprehensive and responsive web application designed to provide users with easy access to healthcare information and services",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Mazen Fteha",
+            "url": "https://github.com/mazenfteha"
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description":"User Operations"
+        },
+        {
+            "name": "Doctor",
+            "description": "Doctor Operations"
+        },
+        {
+            "name": "Admin",
+            "description": "Admin Operations"
+        }
+    ],
+    "components": {
+        "responses": {
+            "UnauthorizedError":{
+                "description": "Access token is missing or invalid",
+                "content": {
+                    "application/json": {
+                        "example" : {
+                            "error": "Unauthorized",
+                            "message": "Access token is missing or invalid"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securitySchemes": {
+        "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    },
+    "paths": {
+        "/api/v1/user/registerUser":{
+            "post":{
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Register a new user",
+                "requestBody":{
+                    "description": "User Registration Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "userName":{
+                                        "type": "string",
+                                        "description": "the user's name and it's required."
+                                    },
+                                    "email":{
+                                        "type": "string",
+                                        "description": "the user's email and it's required."
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "the user's password and it's required."
+                                    },
+                                    "age":{
+                                        "type": "integer",
+                                        "description": "the user's age."
+                                    },
+                                    "gender":{
+                                        "type": "string",
+                                        "description": "the user's gender"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400":{
+                        "description": "Email is already registered."
+                    },
+                    "201":{
+                        "description": "User registered successfully"
+                    },
+                    "500":{
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/loginUser": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "login User, authenticate an existing user",
+                "requestBody": {
+                    "description": "User Login Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "email":{
+                                        "type": "string",
+                                        "description": "the user's email and it's required."
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "description": "the user's password and it's required."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "Bad request, user login failed",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "200":{
+                        "description": "User login successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/profile/{id}" :{
+            "get":{
+                "tags": ["User"],
+                "summary": "Get User Profile By ID",
+                "security": [{
+                    "bearerAuth":[]
+                }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of user",
+                        "required": true,
+                        "schema":{
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get profile successfully"
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/notifications/{id}":{
+            "get":{
+                "tags": ["User"],
+                "summary": "Get User Notifications By ID",
+                "security": [{
+                    "bearerAuth":[]
+                }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of user",
+                        "required": true,
+                        "schema":{
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get list of notifications successfully"
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/appointments":{
+            "post":{
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "User create an appointments",
+                "requestBody":{
+                    "description": "Create Appointments Request",
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "patientName":{
+                                        "type": "string"
+                                    },
+                                    "phoneNumber":{
+                                        "type": "integer"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "gender":{
+                                        "type": "string"
+                                    },
+                                    "bookTime": {
+                                        "type": "object"
+                                    },
+                                    "doctorId":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "All fields must be provide"
+                    },
+                    "200":{
+                        "description": "create appointments successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/logoutUser":{
+            "get":{
+                "tags": ["User"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "logout user",
+                "responses": {
+                    "200":{
+                        "description": "successfully logged out."
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/loingDoctor":{
+            "post": {
+                "tags": [
+                    "Doctor"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "login Doctor, authenticate an existing user",
+                "requestBody": {
+                    "description": "Doctor Login Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "email":{
+                                        "type": "string",
+                                        "description": "the doctor's email and it's required."
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "description": "the doctor's password and it's required."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "Bad request, doctor login failed",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "200":{
+                        "description": "Doctor login successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/profile/{id}":{
+            "get":{
+                "tags": ["Doctor"],
+                "summary": "Get Doctor Profile By ID",
+                "security": [{
+                    "bearerAuth":[]
+                }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of doctor",
+                        "required": true,
+                        "schema":{
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Doctor Profile successfully"
+                    },
+                    "404": {
+                        "description": "Doctor not found",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/appointments":{
+            "get":{
+                "tags": ["Doctor"],
+                "summary": "Get Doctor appointments",
+                "security": [{
+                    "bearerAuth":[]
+                }],
+                "responses": {
+                    "401":{
+                        "description": "Doctor not found"
+                    },
+                    "200":{
+                        "description": "get list of appointments successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/appointments/action/{id}":{
+            "put": {
+                "tags": ["Doctor"],
+                "summary": "Update Doctor appointments status (Accept or Cancel) by appointments id",
+                "security": [{
+                    "bearerAuth":[]
+                }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of appointment",
+                        "required": true,
+                        "schema":{
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "example":{
+                                "action":"accepted or cancelled" 
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Appointment ${action}ed successfully"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/reset-password/request":{
+            "post":{
+                "tags": ["Doctor"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Rest doctor password request",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "email":{
+                                        "type": "string",
+                                        "description": "Doctor provide his email"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "Doctor not found",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "200":{
+                        "description": "Go check your email Password reset email sended"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/reset-password/complete":{
+            "post":{
+                "tags": ["Doctor"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Rest doctor password complete",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "newPassword":{
+                                        "type": "string",
+                                        "description": "Doctor provide his newPassword"
+                                    },
+                                    "token":{
+                                        "type": "string",
+                                        "description": "send back token that has been sent in doctor email"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "Doctor not found",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "404":{
+                        "description": "Invaild or expired reset token"
+                    },
+                    "200":{
+                        "description": "Password reset successful"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/logoutDoctor":{
+            "get":{
+                "tags": ["Doctor"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "logout doctor",
+                "responses": {
+                    "200":{
+                        "description": "successfully logged out."
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        
+        "/api/v1/admin/loginAdmin":{
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "login Admin, authenticate an existing user",
+                "requestBody": {
+                    "description": "Admin Login Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "email":{
+                                        "type": "string",
+                                        "description": "the user's email and it's required."
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "description": "the user's password and it's required."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401":{
+                        "description": "Bad request, Admin login failed",
+                        "$ref": "#/components/responses/UnauthorizedError"
+                    },
+                    "200":{
+                        "description": "Admin login successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/doctorCreation":{
+            "post":{
+                "tags": ["Admin"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Add Doctor Data",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name":{
+                                        "type": "string",
+                                        "description": "the doctor's name and it's required."
+                                    },
+                                    "email":{
+                                        "type": "string",
+                                        "description": "the doctor's email and it's required."
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "description": "the doctor's password and it's required."
+                                    },
+                                    "price":{
+                                        "type": "integer",
+                                        "description": "the doctor's price and it's required."
+                                    },
+                                    "phone":{
+                                        "type": "string",
+                                        "description": "the doctor's phone and it's required."
+                                    },
+                                    "specialization":{
+                                        "type": "string",
+                                        "description": "the doctor's specialization and it's required."
+                                    },
+                                    "averageRate":{
+                                        "type":"integer",
+                                        "description": "the doctor's averageRate and it's required."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400":{
+                        "description": "Doctor Email is already exist."
+                    },
+                    "201":{
+                        "description": "Doctor created successfully"
+                    },
+                    "500":{
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/getAllUsers":{
+            "get":{
+                "tags": ["Admin"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Get All Users Data",
+                "responses": {
+                    "200":{
+                        "description": "successfully Return a list of all users"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/getAllDoctors":{
+            "get":{
+                "tags": ["Admin"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Get All Doctors Data",
+                "responses": {
+                    "200":{
+                        "description": "successfully Return a list of all doctors "
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/logoutAdmin":{
+            "get":{
+                "tags": ["Admin"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "logout admin",
+                "responses": {
+                    "200":{
+                        "description": "successfully logged out."
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -111,7 +111,7 @@ const getAllUsers = async (req: Request, res: Response): Promise<void> => {
         await redisClient.set(cacheKey, cacheValue, {EX: 100});
         res.status(StatusCodes.OK).json({users})
     } catch (error) {
-        console.error('Error logging out:', error);
+        console.error('Error on retrive all users:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
@@ -127,7 +127,7 @@ const getAllDoctors = async (req: Request, res: Response): Promise<void> => {
         await redisClient.set(cacheKey, cacheValue, {EX: 100});
         res.status(StatusCodes.OK).json({doctors})
     } catch (error) {
-        console.error('Error logging out:', error);
+        console.error('Error on retrive all doctors:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
