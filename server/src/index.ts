@@ -2,13 +2,16 @@ import dotenv from 'dotenv'
 import express from "express"
 import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express'
+import helmet from "helmet";
+
 
 import { connectToDatabase } from "./config/connection";
 import userRouter from './routes/userRoutes'
 import adminRoutr from './routes/adminRoutes'
 import doctorRoutr from './routes/doctorRoutes'
 import notFound from './middlewares/notFound';
-import errorHandler from './middlewares/notFound';
+import errorHandler from './middlewares/errorHandler';
+import limiter from './middlewares/rateLimiter';
 const swaggerDocument = require('./docs/swagger.json')
 dotenv.config()
 
@@ -18,6 +21,10 @@ connectToDatabase()
 
 const app = express()
 app.use(express.json())
+app.use(helmet());
+app.use(limiter)
+
+
 
 // API Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
