@@ -1,8 +1,10 @@
 import { createClient } from 'redis';
 
 
-const redisHost ='127.0.0.1'
+
+const redisHost ='redis'
 const redisPort = 6379
+
 
 
 const redisClient = createClient({

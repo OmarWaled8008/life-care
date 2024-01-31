@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://prisma:prisma@postgres:5432/prisma
+      - REDIS_URL=redis://redis:6379
+
+  postgres:
+    image: "postgres:alpine"
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: prisma
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
