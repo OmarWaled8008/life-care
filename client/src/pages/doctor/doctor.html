@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>life care | </title>
+  <link rel="shortcut icon" href="../../assets/pics/favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../../../dist/output.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../animate.css">
+  <link rel="stylesheet" href="doctor.css">
+</head>
+
+<body>
+  <header class="header container-fluid bg-main1 p-2 px-5 row justify-between">
+    <div class="col-4 mr-4 flex justify-between">
+      <a class="text-text mx-2 text-sm" href="">Login <i class="text-prim mr-3 fas fa-user"></i></a>
+      <a class="text-text mx-2 text-sm" href="">16781 <i class="text-prim mr-3 fas fa-phone"></i></a>
+      <a class="text-text mx-2 text-sm" href="">info@shifaegypt.com <i class="text-prim mr-3 fas fa-envelope"></i></a>
+    </div>
+    <div class="col-4 ml-4 text-end">
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-twitter"></i></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-youtube"></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </header>
+  <!-- /////////////////////////////////////nav///////////////////////////////////// -->
+  <nav id="navbarr" class="navbarr container-fluid bg-main1">
+    <div class="navbarr__content container pt-2 h-100 flex items-center  justify-between">
+      <a href="../../../index.html" class="d-block col-1"><img src="../../assets/pics/logo.png" width="80" alt=""></a>
+      <div id="hideNav" class="navbarr__hideNav col-1">
+        <span id="navBargure1"></span>
+        <span id="navBargure2"></span>
+        <span id="navBargure3"></span>
+      </div>
+      <div id="collapse" class="navbarr__collapse col-11">
+        <ul class="navbarr__ul1">
+          <li><a class="text-text hover:text-prim" href="../../../index.html">Home</a></li>
+          <li class="navbarr__li-dropdown">
+            <button id="navbarr__linkdrop" class="navbarr__linkdrop text-text hover:text-prim" href="">Departments <i
+                class="fa-solid fa-chevron-down"></i></button>
+            <div id="navbarr__dropdown" class="navbarr__dropdown p-4 justify-between">
+              <ul class="">
+                <li class="pb-3"><a class="text-text hover:text-prim"
+                    href="src/pages/departments/heart/heart.html">Cardiology department</a></li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">brain and nerves</a>
+                </li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Intensive care</a>
+                </li>
+              </ul>
+              <ul class="">
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Surgery</a></li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">Internal diseases
+                  </a>
+                </li>
+                <li class="pb-3"><a class="text-text hover:text-prim" href="#">eyes illnesses</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="text-text hover:text-prim" href="src/pages/doctors/doctors.html">Doctors</a></li>
+          <li><a class="text-text hover:text-prim" href="">Specialties and procedures</a></li>
+        </ul>
+        <ul class="navbarr__ul2 me-auto p-2">
+          <li class="w-100"><a id="appointmentbtn" class="w-100 d-block text-center p-3 rounded-lg"
+              href="src/pages/appointment/appointment.html">book an
+              appointment</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /////////////////////////////////////appointmenthero///////////////////////////////////// -->
+  <main class="appointmenthero container-fluid p-0 bg-prim">
+    <div class="appointmenthero__title">
+      <h2 class="text-prim">Doctors</h2>
+      <p class="text-main3">Search Our Wide Index Of Professional Doctors
+      </p>
+      <div class="mb-3">
+        <div class="searchcon">
+          <input type="search" class="form-control" id="search" name="search"
+            placeholder="Search">
+          <button type="submit" id="searchbtn">Search</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- /////////////////////////////////////doctor///////////////////////////////////// -->
+  <section id="doctor" class="doctor container mb-5">
+    <div id="doccontainer" class="doctor_con row rounded-2xl">
+      <div  class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>doctor name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>mohamed name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>ahmed name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>khaled name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>abdo name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>mostafa name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>sara name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>mazen name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>akram name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>hassan name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>hosam name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="doctor__div col-4 gy-5 rounded-2xl wow bounceIn">
+        <div class="text-main1 rounded-2xl text-center bg-white">
+          <img class="rounded-2xl d-block" src="../../assets/pics/des1.jpg" alt="">
+          <div class="doctor__details p-4">
+            <h2>hussin name</h2>
+            <h4>specialization</h4>
+            <div class="doctor_btns row justify-between mt-3">
+              <a id="docappointmentbtn" class="d-block text-center p-2 rounded-lg"
+                href="../appointment/appointment.html">Book</a>
+              <a id="notbtn" class="d-block text-center p-2 rounded-lg">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /////////////////////////////////////footer///////////////////////////////////// -->
+  <footer class="footer container-fluid bg-main1">
+    <div class="footer__content">
+      <img src="../../assets/pics/logo.png" alt="" width="200">
+      <ul class="flex w-75 justify-evenly">
+        <li><a class="text-text hover:text-prim w-10" href="index.html">Home</a></li>
+        <li class="navbarr__li-dropdown">
+          <button id="" class=" text-text hover:text-prim" href="">Departments</button>
+        </li>
+        <li><a class="text-text hover:text-prim w-10" href="src/pages/doctors/doctors.html">Doctors</a></li>
+        <li><a class="text-text hover:text-prim w-10" href="">Specialties and procedures</a></li>
+      </ul>
+      <div>
+        <h4 class="text-prim">Stay in touch</h4>
+        <div class="text-center">
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-twitter"></i></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-youtube"></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-instagram"></i></a>
+          <a class="text-prim mx-1 text-sm" href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <p class="mb-0 text-main2"><small>© Colorlib. All Rights Reserved.</small></p>
+    </div>
+  </footer>
+  <!-- /////////////////////////////////////script///////////////////////////////////// -->
+  <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../node_modules/wow.js/dist/wow.js"></script>
+  <script src="doctor.js"></script>
+</body>
+
+</html>

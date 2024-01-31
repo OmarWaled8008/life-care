@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main2: rgb(155, 155, 155);
+  --main1: #082336;
+  --main3: #0c324d;
+  --prim: #c99c43;
+  --text: #fefefe;
+}
+
+a {
+  text-decoration: none;
+}
+ol,
+ul {
+  padding: 0rem;
+}
+html::-webkit-scrollbar {
+  width: 2vh;
+}
+html::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--main1);
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--main3);
+}
+/* ////////////////////////////appointmenthero//////////////////////////// */
+.appointmenthero {
+  height: 65vh;
+  background-image: url(../../assets/pics/appointmenth1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.appointmenthero__title {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #082336bb 50%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+.appointmenthero__title h2 {
+  font-size: 55px;
+}
+.appointmenthero__title p {
+  color: var(--main2);
+  font-size: 20px;
+}
+.form-control {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--main1) !important;
+  border: 2px solid var(--prim) !important;
+  color: var(--main2);
+  width: 75% !important;
+}
+.form-control:focus {
+  color: var(--text);
+  background-color: var(--main1) !important;
+  border-color: var(--prim) !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #c99c43a4 !important;
+}
+.form-control::placeholder {
+  color: var(--prim);
+}
+#searchbtn {
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-color: var(--prim);
+  color: var(--main1);
+  border: var(--prim) solid 2px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  width: 20% !important;
+}
+#searchbtn:hover {
+  background-color: var(--main1);
+  color: var(--prim);
+}
+.searchcon {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  justify-content: space-between;
+}
+/* ////////////////////////////appointment//////////////////////////// */
+#docappointmentbtn {
+  background-color: var(--prim);
+  color: var(--main1);
+  border: transparent 2px solid;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  width: 45%;
+}
+#docappointmentbtn:hover {
+  background-color: var(--main1);
+  color: var(--prim);
+  border-color: var(--prim);
+}
+#notbtn {
+  background-color: gray;
+  color: var(--main1);
+  width: 45%;
+  cursor: no-drop;
+}
+.doctor__div>div{
+  border: 2px solid var(--main1);
+}

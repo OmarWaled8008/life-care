@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main2: rgb(155, 155, 155);
+  --main1: #082336;
+  --main3: #0c324d;
+  --prim: #c99c43;
+  --text: #fefefe;
+}
+body {
+  background-image: url(../../assets/pics/haikei2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 55%;
+  color: whitesmoke;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contant {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.messageoverlay {
+  position: fixed;
+  background-color: #082336b2;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.message {
+  width: 50%;
+  height: 50%;
+  background-color: #c99c43;
+  color: #082336;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.message i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--main1);
+  font-size: 30px;
+  cursor: pointer;
+}
+.tablecon {
+  width: 100%;
+}
+
+.table-info {
+  --bs-table-color: var(--prim);
+  --bs-table-bg: var(--main1);
+  --bs-table-border-color: var(--main2);
+  --bs-table-hover-bg: var(--prim);
+  --bs-table-hover-color: var(--main1);
+}
+.rejection,
+.acceptable {
+  display: block;
+  margin: auto;
+  width: 120px;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+}
+.rejection {
+  background-color: rgb(172, 66, 66);
+}
+
+.acceptable {
+  background-color: rgb(64, 145, 64);
+}
+th,
+tr,
+td {
+  text-align: center;
+}
+tr[data-bg="verified"] {
+  background-color: green !important;
+}
