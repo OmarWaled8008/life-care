@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>life care | doctor table</title>
+  <link rel="shortcut icon" href="../../assets/pics/favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../../../dist/output.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../animate.css">
+  <link rel="stylesheet" href="doctorappoinments.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="contant">
+      <div id="messageoverlay" class="messageoverlay">
+        <div id="message" class="message" role="alert">
+          <i id="closeMessage" class="fas fa-times-circle"></i>
+          <span id="spanMessage" class="d-block text-4xl"></span>
+        </div>
+      </div>
+      <!-- //dont forget to change the method and the action// -->
+      <div class="tablecon mt-5">
+        <h2 class="text-center text-prim">Appointments that have been booked</h2>
+        <p class="text-main2 text-center">Please look at the appointments carefully and choose the appointments you want
+          to approve
+        </p>
+        <table class="table table-info table-hover">
+          <thead>
+            <tr class="verified">
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Appointment</th>
+              <th scope="col">Acceptable</th>
+              <th scope="col">Rejection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td><a class="acceptable">Accept</a></td>
+              <td><a class="rejection">Reject</a></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td><a class="acceptable">Accept</a></td>
+              <td><a class="rejection">Reject</a></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td><a class="acceptable">Accept</a></td>
+              <td><a class="rejection">Reject</a></td>
+            </tr>
+            <tr class="" data-bg="verified">
+              <th scope="row">4</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td><a class="acceptable">Accept</a></td>
+              <td><a class="rejection">Reject</a></td>
+            </tr>
+
+
+
+
+
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <!-- /////////////////////////////////////script///////////////////////////////////// -->
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../node_modules/wow.js/dist/wow.js"></script>
+    <script src="doctorappoinments.js"></script>
+</body>
+
+</html>
